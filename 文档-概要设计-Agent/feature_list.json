@@ -1,0 +1,61 @@
+{
+  "$schema": "./feature-list.schema.json",
+  "features": [
+    {
+      "id": "feat-001",
+      "name": "技术类概要设计章节配置",
+      "description": "支持紧贴技术设计说明书的八章结构，并排除数据库详细设计、部署实施、运行维护和用户操作内容",
+      "dependencies": [],
+      "status": "done",
+      "evidence": "章节配置、提纲、渲染和校验均采用 technical-spec profile；完整冒烟测试通过"
+    },
+    {
+      "id": "feat-002",
+      "name": "合同资料与源码证据治理",
+      "description": "读取索引、合同、详细设计、模板和 Python/Java 外部源码，区分合同事实、源码现状、目标设计和待确认项",
+      "dependencies": ["feat-001"],
+      "status": "done",
+      "evidence": "外部资料与源码索引、理解台账、证据状态策略、只读源码边界和扩展清单契约已落地"
+    },
+    {
+      "id": "feat-003",
+      "name": "长任务状态与安全续作",
+      "description": "把计划、活动工作项、阶段成果、验证证据、阻塞项和下一步持久化到磁盘",
+      "dependencies": ["feat-002"],
+      "status": "done",
+      "evidence": "checkpoint/status 命令、长任务计划、当前状态、会话交接和增强 state.json 已完成"
+    },
+    {
+      "id": "feat-004",
+      "name": "模板蒸馏与 Word 全页质检",
+      "description": "从指定模板提取样式约束，生成 DOCX 后执行包结构、敏感信息、全部页面渲染与人工目视确认",
+      "dependencies": ["feat-003"],
+      "status": "done",
+      "evidence": "模板蒸馏规范、DOCX 定点清理、qa 命令、逐页索引和视觉确认闭环已通过冒烟测试"
+    },
+    {
+      "id": "feat-005",
+      "name": "质量门禁与维护交接",
+      "description": "以追踪矩阵、结构校验、正式校验、技能校验、工程初始化和会话交接防止虚假完成",
+      "dependencies": ["feat-004"],
+      "status": "done",
+      "evidence": "Skill quick_validate 通过，Python compileall 通过，端到端冒烟测试通过"
+    },
+    {
+      "id": "feat-006",
+      "name": "QA经验回流与分章增量交付",
+      "description": "从历史QA中沉淀通用规则，增强参考样本蒸馏、章节深度、内容泄漏、分章预览、修订边界和Word编辑预检",
+      "dependencies": ["feat-005"],
+      "status": "done",
+      "evidence": "新增经验索引、样本蒸馏、内容深度与泄漏门禁、分章预览、修订哈希边界和Word预检；完整冒烟、专项失败用例、Skill校验、JSON校验和Harness 100/100均通过"
+    },
+    {
+      "id": "feat-007",
+      "name": "参考材料内容与载体隔离",
+      "description": "允许按证据边界吸收参考材料的有效内容，默认禁止文件名、路径、资料编号和本地资源依赖说明进入正式正文",
+      "dependencies": ["feat-006"],
+      "status": "done",
+      "evidence": "已完成材料内容/载体分层规则、默认不写入与显式逻辑依赖开关、Markdown/DOCX 载体泄漏门禁和内部注释清理；全量冒烟、Skill 校验、JSON 校验和 Harness 100/100 通过"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+version: "1"
+structure:
+  require_task: true
+  require_source_manifest: true
+  require_source_understanding_ledger: true
+  require_long_task_state: true
+  require_outline: true
+  require_chapter_index: true
+  require_reference_sample_distillation: true
+  require_qa_experience_candidate_log: true
+final:
+  allow_unresolved_placeholders: false
+  require_traceability_matrix: true
+  require_contract_coverage: true
+  require_template_distillation_when_designated: true
+  enforce_technical_profile_exclusions: true
+  require_quality_report: true
+  require_formal_markdown: true
+  require_formal_docx: true
+  require_docx_structure_audit: true
+  require_full_page_render: true
+  require_visual_page_confirmation: true
+  require_leaf_section_depth: true
+  reject_repeated_boilerplate: true
+  reject_local_path_leaks: true
+  reject_reference_carrier_exposure: true
+  local_resource_dependency_default: "omit"
+  local_resource_dependency_requires_explicit_user_instruction: true
+  local_absolute_paths_remain_forbidden: true
+  reject_reference_forbidden_terms: true
+  require_revision_scope_integrity: true
+word:
+  require_edit_preflight_when_replacing: true
+  require_image_alt_text_review: true
+  require_diagram_visual_review: true
+versioning:
+  default_history_policy: "保留全部"
+  cleanup_requires_explicit_user_instruction: true

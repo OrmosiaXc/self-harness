@@ -1,0 +1,4 @@
+interface:
+  display_name: "专业可编辑 PPT"
+  short_description: "从资料核对、逐页目录和风格预览到可编辑 PPTX、渲染 QA 与版本交付"
+  default_prompt: "使用 create-professional-ppt 工作流处理当前 PPT 任务，先核对事实和确认点，再按阶段构建并验证。"

@@ -1,0 +1,18 @@
+openapi: 3.1.0
+info:
+  title: High-Level Design Agent API
+  version: 1.0.0
+paths:
+  /documents:
+    post:
+      summary: 创建概要设计任务
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ../../contracts/input.schema.json
+      responses:
+        "202":
+          description: 已创建任务
+

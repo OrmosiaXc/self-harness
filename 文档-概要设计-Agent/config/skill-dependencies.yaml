@@ -1,0 +1,13 @@
+version: "1"
+required:
+  - name: "write-high-level-design"
+    purpose: "概要设计主流程、资料分类、章节写作和质量门禁"
+optional:
+  - name: "documents:documents"
+    purpose: "DOCX 生成、编辑、全页渲染与版式检查；输出 Word 时为必需能力"
+  - name: "architecture-diagrams"
+    purpose: "生成 Mermaid、PlantUML、C4、业务流程、数据流程和时序图"
+  - name: "pdf"
+    purpose: "读取 PDF 需求、标准和历史资料"
+  - name: "spreadsheets:Spreadsheets"
+    purpose: "读取接口清单、数据字典和需求追踪表"

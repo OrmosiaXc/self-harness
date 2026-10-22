@@ -1,0 +1,4 @@
+interface:
+  display_name: "概要设计文档 Agent"
+  short_description: "整理项目资料并生成、评审、修订和交付完整的中文概要设计文档"
+  default_prompt: "Use $write-high-level-design to create a Chinese high-level design document from the materials in my workspace."

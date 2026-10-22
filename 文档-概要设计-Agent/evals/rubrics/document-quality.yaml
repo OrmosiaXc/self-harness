@@ -1,0 +1,29 @@
+version: "1"
+dimensions:
+  completeness: 2
+  correctness: 2
+  consistency: 2
+  traceability: 2
+  implementability: 2
+  verifiability: 2
+  maintainability: 2
+  evidence_boundary: 2
+  template_fidelity: 2
+  word_page_quality: 2
+  content_depth: 2
+  content_safety: 2
+  incremental_scope: 2
+passing_score: 22
+blocking_rules:
+  - "存在无依据的项目事实"
+  - "强制要求冲突未处理"
+  - "合同功能遗漏"
+  - "在外部源码目录生成成果"
+  - "技术类概要设计包含数据库详细设计、部署操作或用户操作"
+  - "正式交付稿仍有未接受占位符"
+  - "指定模板未完成蒸馏"
+  - "参考样本未完成形式蒸馏或混入样本项目事实"
+  - "叶子小节只有一段概括或存在重复套话"
+  - "正式成果包含本机路径、内部产物、资料编号或未授权的参考文件载体"
+  - "修订范围外章节被改写"
+  - "DOCX 未完成全页渲染和逐页检查"

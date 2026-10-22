@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/high-level-design/review-report.schema.json",
+  "title": "概要设计质量检查报告",
+  "type": "object",
+  "required": ["mode", "checked_at", "issues"],
+  "properties": {
+    "mode": { "type": "string", "enum": ["structure", "final"] },
+    "checked_at": { "type": "string", "format": "date-time" },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["severity", "code", "message", "location"],
+        "properties": {
+          "severity": { "type": "string", "enum": ["错误", "警告", "提示"] },
+          "code": { "type": "string", "minLength": 1 },
+          "message": { "type": "string", "minLength": 1 },
+          "location": { "type": "string" }
+        }
+      }
+    }
+  }
+}
+

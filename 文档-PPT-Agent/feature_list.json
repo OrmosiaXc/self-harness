@@ -1,0 +1,62 @@
+{
+  "features": [
+    {
+      "id": "feat-001",
+      "name": "分阶段 PPT 制作工作流",
+      "description": "覆盖资料识别、逐页目录确认、风格预览确认、可编辑构建、视觉 QA 和交付闭环",
+      "dependencies": [],
+      "status": "done",
+      "evidence": "核心 Skill、工作流参考、工作区模板和确认记录模板已建立"
+    },
+    {
+      "id": "feat-002",
+      "name": "文档与源码事实治理",
+      "description": "区分资料事实、源码现状、目标表达、假设和待确认项，支持技术内容转领导表达",
+      "dependencies": [
+        "feat-001"
+      ],
+      "status": "done",
+      "evidence": "事实与证据台账、代码核对规则、受众表达规则和来源提炼说明已建立"
+    },
+    {
+      "id": "feat-003",
+      "name": "严谨可编辑 PPT 构建规范",
+      "description": "提供原生对象、文字适配、安全区、备注、素材边界和 PptxGenJS 防错位规则",
+      "dependencies": [
+        "feat-002"
+      ],
+      "status": "done",
+      "evidence": "视觉规范、可编辑构建规范、质量门禁和通用 PPTX 结构验证脚本已建立"
+    },
+    {
+      "id": "feat-004",
+      "name": "渲染 QA 与版本治理",
+      "description": "要求完整渲染、独立视觉复核、修复复验、新版先验证再清理旧版",
+      "dependencies": [
+        "feat-003"
+      ],
+      "status": "done",
+      "evidence": "QA 模板、版本规则、交付模板和验证命令已建立"
+    },
+    {
+      "id": "feat-005",
+      "name": "Agent 工程与可续作状态",
+      "description": "提供新建工作区、结构验证、冒烟测试、进度和会话交接能力",
+      "dependencies": [
+        "feat-004"
+      ],
+      "status": "done",
+      "evidence": "agent.py、init.sh、工作区模板、状态文件和冒烟测试已建立"
+    },
+    {
+      "id": "feat-006",
+      "name": "CyberPPT 双阶段与章节化并行集成",
+      "description": "先生成整套 CyberPPT 效果图再原生重建；由父任务冻结技术大纲和全局构建契约，按子章节独立开发，并支持标题留白内容页的后续合并",
+      "dependencies": [
+        "feat-005"
+      ],
+      "status": "done",
+      "evidence": "新增双阶段、父子任务、共享契约、标题留白和集成回归参考；补充工作区模板、提示词、质量门、评测案例及标题保留区结构校验"
+    }
+  ]
+}

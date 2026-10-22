@@ -1,0 +1,13 @@
+{
+  "name": "Chinese High-Level Design Agent",
+  "description": "Creates, reviews and revises Chinese software high-level design documents.",
+  "version": "1.0.0",
+  "skills": [
+    {
+      "id": "write-high-level-design",
+      "name": "Write High-Level Design",
+      "description": "Classify project materials and produce traceable Markdown and DOCX design documents."
+    }
+  ]
+}
+

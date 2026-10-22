@@ -1,0 +1,21 @@
+{
+  "project": "",
+  "status": "template",
+  "phase": "task_definition",
+  "active_work_item": "",
+  "build_mode": "content-only-integration",
+  "technical_outline_confirmed": false,
+  "outline_confirmed": false,
+  "preview_confirmed": false,
+  "global_contract_status": "drafting",
+  "global_contract_version": "1.0",
+  "global_contract_hash": "",
+  "parallel_chapters": false,
+  "chapter_tasks": [],
+  "integration_status": "pending",
+  "build_version": "V0.1",
+  "created_at": "",
+  "updated_at": "",
+  "last_verified_at": "",
+  "next_step": "填写制作任务、选择构建模式并识别资料"
+}

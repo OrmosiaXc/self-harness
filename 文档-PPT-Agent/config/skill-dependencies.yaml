@@ -1,0 +1,41 @@
+version: "2"
+
+required_skills:
+  - name: cyber-ppt
+    purpose: 先构建并确认整套视觉效果图，再形成可编辑重建规格
+  - name: pptx
+    purpose: PPTX 创建、编辑、解包、渲染和结构检查
+  - name: Presentations
+    purpose: 演示文稿内容和版式工作流
+
+conditional_skills:
+  - name: editable-ppt-pages
+    when: 需要根据效果图重建可编辑内容页，或使用标题留白集成模式
+  - name: imagegen
+    when: CyberPPT 流程需要生成效果图、插图或位图素材
+  - name: architecture-diagrams
+    when: 需要架构、流程、数据流或部署关系图
+  - name: docx
+    when: 输入包含 Word 文档
+  - name: pdf
+    when: 输入包含 PDF 或交付需要 PDF
+
+runtime:
+  node:
+    packages:
+      - pptxgenjs
+  python:
+    standard_library_only_for_agent_cli: true
+    optional_packages:
+      - markitdown[pptx]
+      - pillow
+  system:
+    - libreoffice
+    - pdftoppm
+
+safety:
+  source_paths_read_only: true
+  no_output_inside_source_code_directories: true
+  destructive_cleanup_requires_explicit_scope: true
+  child_tasks_must_have_non_overlapping_write_scopes: true
+  task_session_creation_requires_explicit_user_enablement: true

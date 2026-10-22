@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "requirements-repository": {
+      "command": "replace-with-approved-command",
+      "args": []
+    }
+  }
+}
+

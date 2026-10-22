@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "文档-概要设计-Agent 功能状态",
+  "type": "object",
+  "properties": {
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^feat-\\d+$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "dependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "type": "string",
+            "enum": ["not-started", "in-progress", "blocked", "done"]
+          },
+          "evidence": {
+            "type": "string"
+          }
+        },
+        "required": ["id", "name", "description", "status", "evidence"]
+      }
+    }
+  },
+  "required": ["features"]
+}

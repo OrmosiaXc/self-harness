@@ -1,0 +1,111 @@
+version: "2"
+
+sources:
+  require_source_manifest: true
+  require_fact_evidence_ledger: true
+  separate_fact_code_target_and_pending: true
+  forbid_unverified_metrics_as_facts: true
+  external_sources_read_only: true
+
+content:
+  require_audience_and_scenario: true
+  require_page_count_target: true
+  require_page_by_page_outline: true
+  require_one_core_message_per_slide: true
+  require_source_or_boundary_for_key_claims: true
+  require_confirmation_when_user_requests_outline_review: true
+  require_technical_outline_for_long_or_technical_decks: true
+  require_stable_slide_ids: true
+  require_page_title_map: true
+  require_cross_chapter_dependency_map: true
+
+contract:
+  require_global_build_contract: true
+  require_locked_contract_before_chapter_dispatch: true
+  require_contract_version_or_hash: true
+  require_canvas_zone_ownership: true
+  require_font_palette_grid_and_component_tokens: true
+  chapter_deviation_requires_parent_approval: true
+
+orchestration:
+  task_sessions_require_explicit_user_enablement: true
+  require_self_contained_chapter_packages: true
+  require_independent_chapter_data_directories: true
+  require_non_overlapping_write_scopes: true
+  require_flat_single_level_tasks: true
+  require_parent_dispatch_ledger: true
+  allow_parallel_chapters: true
+  require_sequential_pages_within_chapter: true
+
+preview:
+  require_style_spec: true
+  require_representative_slides: true
+  require_confirmation_when_user_requests_preview_review: true
+  reject_fake_result_visuals: true
+  engine: cyber-ppt
+  require_full_deck_blueprints: true
+  require_slide_content_lock: true
+  require_blueprint_component_signature: true
+  require_visual_element_registry: true
+  require_reserved_zones_in_blueprints: true
+
+build:
+  editable_native_objects: true
+  require_speaker_notes: true
+  require_text_autofit: true
+  require_safe_margins: true
+  reject_full_page_raster_slides: true
+  reject_placeholder_text: true
+  reject_local_path_leaks: true
+  reject_forbidden_phrases: true
+  engine: pptxgenjs
+  require_page_manifest: true
+  require_blueprint_to_editable_mapping: true
+  require_content_only_mode_when_configured: true
+  require_reserved_title_zone_clear: true
+  require_parent_owned_global_elements_absent_from_chapter_pages: true
+
+chapter_acceptance:
+  require_contract_snapshot: true
+  require_source_and_evidence_ledger: true
+  require_content_lock_and_blueprints: true
+  require_editable_pptx_and_builder_source: true
+  require_structure_and_visual_qa: true
+  require_delivery_checklist: true
+
+integration:
+  require_page_id_ordering: true
+  require_page_title_map: true
+  preserve_native_objects_and_notes: true
+  reject_rasterized_or_scaled_slide_imports: true
+  require_parent_applied_titles_and_global_chrome: true
+  require_cross_chapter_consistency_check: true
+  require_full_deck_regression: true
+
+visual_qa:
+  require_full_render: true
+  require_individual_slide_images: true
+  require_overview_images: true
+  require_issue_list: true
+  require_fix_and_reverify_cycle: true
+  prefer_independent_reviewer: true
+
+delivery:
+  require_pptx: true
+  require_builder_source: true
+  require_assets_and_dependencies: true
+  require_content_outline: true
+  require_structure_report: true
+  require_visual_qa_report: true
+  require_version_and_hash_record: true
+  require_technical_outline: true
+  require_global_build_contract: true
+  require_page_title_map: true
+  require_chapter_packages_when_parallel: true
+  require_blueprints_and_component_signatures: true
+  require_parent_integration_report: true
+
+versioning:
+  copy_and_verify_new_before_cleanup: true
+  cleanup_requires_explicit_user_instruction: true
+  delete_only_exact_superseded_targets: true

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/high-level-design/source-manifest.schema.json",
+  "title": "资料清单",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "sources"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_id", "relative_path", "detected_role", "effective_role", "sha256"],
+        "properties": {
+          "source_id": { "type": "string", "pattern": "^R-[0-9]{3,}$" },
+          "relative_path": { "type": "string", "minLength": 1 },
+          "detected_role": { "$ref": "#/$defs/sourceRole" },
+          "effective_role": { "$ref": "#/$defs/sourceRole" },
+          "can_be_fact": { "type": "string", "enum": ["是", "否", "待确认"] },
+          "scope": { "type": "string" },
+          "user_correction": { "type": "string" },
+          "size": { "type": "integer", "minimum": 0 },
+          "modified_at": { "type": "string", "format": "date-time" },
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "source_kind": { "type": "string" },
+          "read_only": { "type": "string", "enum": ["是", "否"] },
+          "access_status": { "type": "string", "enum": ["可访问", "路径不存在"] },
+          "hash_scope": { "type": "string", "enum": ["file-content", "directory-metadata", "path-only"] }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "sourceRole": {
+      "type": "string",
+      "enum": ["强制要求", "项目事实", "目录结构参考", "内容参考", "样式参考", "正式交付模板", "不使用", "待确认"]
+    }
+  }
+}

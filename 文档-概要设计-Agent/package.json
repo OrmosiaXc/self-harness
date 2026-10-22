@@ -1,0 +1,10 @@
+{
+  "name": "high-level-design-agent",
+  "private": true,
+  "version": "1.0.0",
+  "description": "中文概要设计 Agent 的 DOCX 模板构建依赖",
+  "dependencies": {
+    "docx": "^9.5.1"
+  }
+}
+

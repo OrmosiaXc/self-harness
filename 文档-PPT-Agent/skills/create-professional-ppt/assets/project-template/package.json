@@ -1,0 +1,11 @@
+{
+  "name": "editable-ppt-project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build_editable_pptx.js"
+  },
+  "dependencies": {
+    "pptxgenjs": "^4.0.0"
+  }
+}

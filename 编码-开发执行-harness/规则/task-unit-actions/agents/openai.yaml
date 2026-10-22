@@ -1,0 +1,5 @@
+interface:
+  display_name: "任务动作与项目知识"
+  short_description: "使用提示词# 描述显式触发任务动作、知识与项目分析，测试复用概要记录，其他动作一次一张卡片"
+policy:
+  allow_implicit_invocation: false

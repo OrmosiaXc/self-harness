@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "document_name": "{{DOCUMENT_NAME}}",
+  "phase": "created",
+  "completion": 0,
+  "active_work_item": "登记资料和任务边界",
+  "completed_steps": [],
+  "artifacts": [],
+  "last_verification": "尚未执行",
+  "next_action": "填写编写任务并投递资料",
+  "blocker": "无",
+  "safe_restart": "读取编写任务、当前状态、长任务计划、会话交接和本状态文件",
+  "history": [],
+  "updated_at": ""
+}
