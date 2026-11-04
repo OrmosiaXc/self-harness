@@ -17,6 +17,44 @@ description: 个人编码规范技能，适用于 Java、Kotlin、Python 项目�
 
 **简洁优雅**：能用少的代码表达清楚的，不写多余的。避免冗余的中间变量、无意义的包装、过度的防御性代码。
 
+## Java模块目录与Mapper资源规范
+
+适用于本harness管理的Java后端新增模块和本次明确要求整理的模块；用户最新明确目录要求优先。此处“功能模块”指业务包目录，不等同于Maven子工程。
+
+- 先按功能模块命名目录，再在模块目录内设置 `mapper`、`service`、`entity`；按需要增加 `controller`、`support` 等目录，不创建无内容的占位目录。禁止只在工程根包集中堆放所有模块的mapper/service/entity。
+- 服务采用接口与同名 `Impl` 实现类：例如 `ProcessService` 与 `ProcessServiceImpl`。接口和实现类统一放在对应功能模块的 `service` 目录，不单独建立 `impl` 目录；调用方按接口声明依赖并注入，实现类实现对应接口。调整已有服务时同步包名、引用、注入、测试及说明文档。
+- 实体、请求、响应及其他数据对象统一放在对应模块的 `entity` 目录，不另设 `domain`、`dto` 目录；类型名称和服务返回契约仍须明确，目录统一不代表必须向外暴露数据库实体。标准拼写为 `entity`。
+- MyBatis Mapper Java接口和对应XML放在同一模块的同一个 `mapper` 目录，XML的namespace、类型全名与Java包名保持一致；不将XML另外放到resources/mapper。
+- Maven POM参照项目已有规范，parent、dependency等标签分行书写，补齐适用的artifactId、packaging、name及parent.relativePath；直接使用的模块依赖显式声明，版本由父工程统一管理时不重复指定。
+- Mapper XML位于src/main/java时，必须配置以下资源打包方式，并检查应用mapperLocations覆盖实际类路径；MapperScan也须覆盖实际接口包。标准资源目录即使暂时没有文件也保留配置。
+
+```text
+com.example.<功能模块>/
+├── mapper/     # XxxMapper.java 与 XxxMapper.xml
+├── service/    # XxxService.java 与 XxxServiceImpl.java，不建impl目录
+└── entity/     # 实体及请求、响应等数据对象
+```
+
+```xml
+<build>
+    <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>false</filtering>
+        </resource>
+        <resource>
+            <directory>src/main/java</directory>
+            <includes>
+                <include>**/*.xml</include>
+            </includes>
+            <filtering>false</filtering>
+        </resource>
+    </resources>
+</build>
+```
+
+移动已有代码前先核对调用方、未提交改动和扫描配置；同步package/import、XML namespace和类型引用、资源打包及mapperLocations，不仅移动文件。既有无关模块不因新增规则而自动全量迁移。收尾检查目录和包名一致、XML与接口同目录且能被打包扫描；是否执行构建仍遵守用户授权及构建验证规则。
+
 ## 实体类构建
 
 实体对象的创建通过自身的构造方法或 `init` 方法完成，不在外部逐个赋值属性。
@@ -98,3 +136,7 @@ if retry_count > MAX_RETRY_COUNT:
 - 无参请求统一用 `@GetMapping`
 - 有参请求统一用 `@PostMapping`
 - 入参只用 `@RequestParam` 或 `@RequestBody`，不混用其他方式
+
+## 模块文档生成约束
+
+构建代码、新建模块或实现功能时，除非用户明确要求，不为每个模块新建README（包括README.md及同类模块说明入口）。必要实现说明优先维护已有设计文档、已有项目文档和任务执行记录；不以其他名称批量生成等价模块说明来绕过本规则。已有README按实际变更需要增量维护，不自动删除。
